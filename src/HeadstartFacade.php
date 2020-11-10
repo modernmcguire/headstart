@@ -1,11 +1,11 @@
 <?php
 
-namespace Modernmcguire\Headstart;
+namespace ModernMcGuire\Headstart;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Modernmcguire\Headstart\Skeleton\SkeletonClass
+ * @see \ModernMcGuire\Headstart\Skeleton\SkeletonClass
  */
 class HeadstartFacade extends Facade
 {

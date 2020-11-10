@@ -1,6 +1,6 @@
 <?php
 
-namespace Modernmcguire\Headstart;
+namespace ModernMcGuire\Headstart;
 
 class Headstart
 {

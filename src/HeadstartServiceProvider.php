@@ -1,6 +1,6 @@
 <?php
 
-namespace Modernmcguire\Headstart;
+namespace ModernMcGuire\Headstart;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +21,7 @@ class HeadstartServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('headstart.php'),
+                __DIR__.'/../config/headstart.php' => config_path('headstart.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,7 +50,7 @@ class HeadstartServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'headstart');
+        $this->mergeConfigFrom(__DIR__.'/../config/headstart.php', 'headstart');
 
         // Register the main class to use with the facade
         $this->app->singleton('headstart', function () {

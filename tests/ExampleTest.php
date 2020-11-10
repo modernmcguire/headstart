@@ -1,9 +1,9 @@
 <?php
 
-namespace Modernmcguire\Headstart\Tests;
+namespace ModernMcGuire\Headstart\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Modernmcguire\Headstart\HeadstartServiceProvider;
+use ModernMcGuire\Headstart\HeadstartServiceProvider;
 
 class ExampleTest extends TestCase
 {
@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     {
         return [HeadstartServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {
