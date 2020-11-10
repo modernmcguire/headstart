@@ -1,4 +1,6 @@
-# A CMS built on top of Laravel
+![Headstart - CMS and Admin Panel on Laravel](headstart-banner.png?version=1)
+
+# Headstart
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/modernmcguire/headstart.svg?style=flat-square)](https://packagist.org/packages/modernmcguire/headstart)
 [![Build Status](https://img.shields.io/travis/modernmcguire/headstart/master.svg?style=flat-square)](https://travis-ci.org/modernmcguire/headstart)
