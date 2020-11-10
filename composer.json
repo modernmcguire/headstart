@@ -1,0 +1,54 @@
+{
+    "name": "modernmcguire/headstart",
+    "description": "A CMS built on Laravel",
+    "keywords": [
+        "modernmcguire",
+        "headstart"
+    ],
+    "homepage": "https://github.com/modernmcguire/headstart",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ben Miller",
+            "email": "ben@modernmcguire.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modernmcguire\\Headstart\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modernmcguire\\Headstart\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modernmcguire\\Headstart\\HeadstartServiceProvider"
+            ],
+            "aliases": {
+                "Headstart": "Modernmcguire\\Headstart\\HeadstartFacade"
+            }
+        }
+    }
+}
