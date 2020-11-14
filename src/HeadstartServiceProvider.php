@@ -2,6 +2,7 @@
 
 namespace ModernMcGuire\Headstart;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class HeadstartServiceProvider extends ServiceProvider
@@ -17,7 +18,7 @@ class HeadstartServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'headstart');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'headstart');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/headstart.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
