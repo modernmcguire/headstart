@@ -2,7 +2,10 @@
 
 namespace ModernMcGuire\Headstart;
 
+use ModernMcGuire\Headstart\Traits\AuthorizesRequests;
+
 class Headstart
 {
-    // Build your next great package.
+    use AuthorizesRequests;
+
 }
