@@ -15,6 +15,8 @@ You can install the package via composer:
 
 ```bash
 composer require modernmcguire/headstart
+
+php artisan headstart:install
 ```
 
 ## Usage

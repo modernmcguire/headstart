@@ -2,9 +2,10 @@
 
 namespace ModernMcGuire\Headstart\Models;
 
-use App\Form;
-use App\Traits\HasUuid;
+
 use Illuminate\Database\Eloquent\Model;
+use ModernMcGuire\Headstart\Models\Form;
+use ModernMcGuire\Headstart\Traits\HasUuid;
 
 class FormSubmission extends Model
 {

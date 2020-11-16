@@ -21,6 +21,9 @@ class HeadstartServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'headstart');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        Route::middlewareGroup('headstart_admin', config('headstart.admin_middleware', []));
+        Route::middlewareGroup('headstart', config('headstart.page_middleware', []));
+
         $this->registerRoutes();
 
         if ($this->app->runningInConsole()) {
@@ -91,8 +94,9 @@ class HeadstartServiceProvider extends ServiceProvider
         return [
             'domain' => config('headstart.domain', null),
             'prefix' => config('headstart.path'),
+            'name' => 'headstart.',
             'namespace' => 'ModernMcGuire\Headstart\Http\Controllers\Admin',
-            'middleware' => 'headstart'
+            'middleware' => config('headstart.admin_middleware', []),
         ];
     }
 
@@ -107,7 +111,7 @@ class HeadstartServiceProvider extends ServiceProvider
             'domain' => config('headstart.domain', null),
             'prefix' => config('headstart.path'),
             'namespace' => 'ModernMcGuire\Headstart\Http\Controllers',
-            'middleware' => 'web'
+            'middleware' => config('headstart.page_middleware', []),
         ];
     }
 

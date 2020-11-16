@@ -20,7 +20,7 @@ class HeadstartServiceProvider extends HeadstartApplicationServiceProvider
     /**
      * Register the Headstart gate.
      *
-     * This gate determines who can access Headstart in non-local environments.
+     * This gate determines who can access Headstart.
      *
      * @return void
      */

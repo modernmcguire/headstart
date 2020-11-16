@@ -35,6 +35,6 @@ Route::prefix('/resources')->group(function() {
 
 // Form submissions
 Route::get('/form-submissions', [FormController::class, 'allSubmissions'])->name('forms.allSubmissions');
-Route::resource('/forms', FormController::class);
+Route::resource('/forms', 'FormController');
 Route::get('/forms/{form}/submissions', [FormController::class, 'showSubmissions'])->name('forms.show.submissions');
 Route::get('/forms/{form}/submissions/{submission}', [FormController::class, 'showSubmission'])->name('forms.show.submission');

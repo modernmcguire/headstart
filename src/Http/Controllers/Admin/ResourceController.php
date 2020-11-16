@@ -13,18 +13,20 @@ class ResourceController extends Controller
 
     public function __construct()
     {
-    	$this->type = request('resource_type');
+        if (! app()->runningInConsole()) {
+            $this->type = request('resource_type');
 
-    	$this->resource = app('resource')->getClass($this->type);
+            $this->resource = app('resource')->getClass($this->type);
 
-    	if (!$this->resource) {
-    		abort(404, "This resource type couldn't be found.");
-    	}
+            if (!$this->resource) {
+                abort(404, "This resource type couldn't be found.");
+            }
+        }
     }
 
     public function list()
     {
-    	return view('admin.resource.list', [
+    	return view('headstart::admin.resource.list', [
     		'resource' => $this->resource,
     		'entities' => $this->resource::all(),
     	]);
@@ -32,7 +34,7 @@ class ResourceController extends Controller
 
     public function create()
     {
-    	return redirect(route('admin.resource.edit', [
+    	return redirect(route('headstart::admin.resource.edit', [
     		'resource_type' => $this->type,
     		'entity' => $this->resource::create([
     			$this->resource->title_column => 'Untitled',
@@ -45,7 +47,7 @@ class ResourceController extends Controller
     {
     	$entity = $this->resource::whereSlug(request('entity'))->firstOrFail();
 
-    	return view('admin.resource.edit', [
+    	return view('headstart::admin.resource.edit', [
     		'entity' => $entity,
     	]);
     }
@@ -112,7 +114,7 @@ class ResourceController extends Controller
 
         $entity->fill($request->data)->save();
 
-        return redirect(route('admin.resource.edit', [
+        return redirect(route('headstart::admin.resource.edit', [
     		'resource_type' => $this->type,
     		'entity' => $entity,
     	]))->with('flash.success', Str::title($resource_type) . ' updated.');
@@ -124,7 +126,7 @@ class ResourceController extends Controller
 
         $entity->delete();
 
-        return redirect(route('admin.resource.list', [
+        return redirect(route('headstart::admin.resource.list', [
             'resource_type' => $resource_type,
         ]))->with('flash.success', "<i class='fa fa-check-circle text-success mr-1'></i> The ".strtolower($entity->resourceName())." has been deleted.");
     }

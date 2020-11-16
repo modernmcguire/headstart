@@ -12,7 +12,7 @@ class PageController extends Controller
             abort(404);
         }
 
-        return view('page.show', [
+        return view('headstart::page.show', [
             'page' => $page,
         ]);
     }

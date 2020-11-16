@@ -27,15 +27,14 @@ class HeadstartApplicationServiceProvider extends ServiceProvider
         $this->gate();
 
         Headstart::auth(function ($request) {
-            return app()->environment('local') ||
-                   Gate::check('viewHeadstart', [$request->user()]);
+            return Gate::check('viewHeadstart', [$request->user()]);
         });
     }
 
     /**
      * Register the Headstart gate.
      *
-     * This gate determines who can access Headstart in non-local environments.
+     * This gate determines who can access Headstart.
      *
      * @return void
      */

@@ -30,4 +30,35 @@ return [
     */
 
     'path' => env('HEADSTART_PATH', 'admin'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Headstart Route Middleware
+    |--------------------------------------------------------------------------
+    |
+    | These middleware will be assigned to the public Headstart routes, giving you
+    | the chance to add your own middleware to this list or change any of
+    | the existing middleware. Or, you can simply stick with this list.
+    |
+    */
+
+    'page_middleware' => [
+        'web'
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Headstart Route Middleware
+    |--------------------------------------------------------------------------
+    |
+    | These middleware will be assigned to the admin Headstart route, giving you
+    | the chance to add your own middleware to this list or change any of
+    | the existing middleware. Or, you can simply stick with this list.
+    |
+    */
+
+    'admin_middleware' => [
+        'web',
+        ModernMcGuire\Headstart\Middleware\Authorize::class,
+    ],
 ];

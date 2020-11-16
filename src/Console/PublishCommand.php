@@ -27,14 +27,13 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        $this->call('vendor:publish', [
-            '--tag' => 'headstart-config',
-            '--force' => $this->option('force'),
-        ]);
+        $this->comment('Publishing Headstart Service Provider...');
+        $this->callSilent('vendor:publish', ['--tag' => 'headstart-provider', '--force' => true]);
 
-        $this->call('vendor:publish', [
-            '--tag' => 'headstart-assets',
-            '--force' => true,
-        ]);
+        $this->comment('Publishing Headstart Assets...');
+        $this->callSilent('vendor:publish', ['--tag' => 'headstart-assets', '--force' => true]);
+
+        $this->comment('Publishing Headstart Configuration...');
+        $this->callSilent('vendor:publish', ['--tag' => 'headstart-config', '--force' => true]);
     }
 }

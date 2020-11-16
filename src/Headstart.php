@@ -8,4 +8,9 @@ class Headstart
 {
     use AuthorizesRequests;
 
+    public function getResources()
+    {
+        return [];
+    }
+
 }

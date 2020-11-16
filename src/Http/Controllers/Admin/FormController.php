@@ -13,7 +13,7 @@ class FormController extends Controller
     {
         $submissions = FormSubmission::with('form')->latest()->paginate();
 
-    	return view('admin.forms.all_submissions', [
+    	return view('headstart::admin.forms.all_submissions', [
             'submissions' => $submissions,
         ]);
     }
@@ -25,7 +25,7 @@ class FormController extends Controller
             $submission->save();
         }
 
-        return view('admin.forms.show.submission', [
+        return view('headstart::admin.forms.show.submission', [
             'form' => $form,
             'submission' => $submission,
         ]);

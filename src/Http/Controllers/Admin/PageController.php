@@ -14,14 +14,14 @@ class PageController extends Controller
 {
     public function list()
     {
-    	return view('admin.page.list', [
+    	return view('headstart::admin.page.list', [
     		'pages' => Page::all(),
     	]);
     }
 
     public function create()
     {
-    	return redirect(route('admin.page.edit', [
+    	return redirect(route('headstart::admin.page.edit', [
     		'page' => Page::create([
     			'title' => 'A Brand New Page',
     			'author_id' => auth()->id(),
@@ -35,7 +35,7 @@ class PageController extends Controller
     		$page = Page::make();
     	}
 
-    	return view('admin.page.edit', [
+    	return view('headstart::admin.page.edit', [
     		'page' => $page,
             'active_tab' => session('flash.active_tab', 'settings'),
     	]);
@@ -117,7 +117,7 @@ class PageController extends Controller
     		}
     	}
 
-    	return redirect(route('admin.page.edit', [$page]))
+    	return redirect(route('headstart::admin.page.edit', [$page]))
             ->with('flash.success', "<i class='fa fa-check-circle text-success mr-1'></i> The page has been saved.")
             ->with('flash.active_tab', request('active_tab'));
     }
@@ -126,6 +126,6 @@ class PageController extends Controller
     {
         $page->delete();
 
-        return redirect(route('admin.page.list'))->with('flash.success', "<i class='fa fa-check-circle text-success mr-1'></i> The page has been deleted.");
+        return redirect(route('headstart::admin.page.list'))->with('flash.success', "<i class='fa fa-check-circle text-success mr-1'></i> The page has been deleted.");
     }
 }

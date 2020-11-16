@@ -9,6 +9,6 @@ class MediaController extends Controller
 {
     public function show()
     {
-    	return view('admin.media.show');
+    	return view('headstart::admin.media.show');
     }
 }

@@ -11,6 +11,6 @@ class DashboardController extends BaseController
 {
     public function show()
     {
-    	return view('admin.dashboard.show');
+    	return view('headstart::admin.dashboard.show');
     }
 }
